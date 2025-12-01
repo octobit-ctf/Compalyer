@@ -1,0 +1,14 @@
+INT X:=1;
+INT Hello__gc ,Z,C;
+INT Y;
+BEGIN
+
+
+Hello_gc := 5,Y := 10,Z := 3;
+    IF (X < Y) {
+        Z :=X+6;
+    } ELSE {
+        Y := Y;
+    }
+    C:=Z/X;
+END
