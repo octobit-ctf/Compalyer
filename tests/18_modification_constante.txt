@@ -1,0 +1,6 @@
+CONST INT A = 55;
+INT B;
+BEGIN
+    A := 5 * 7 + 1;
+    A := B;
+END

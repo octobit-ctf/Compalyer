@@ -1,0 +1,9 @@
+INT I, J, Total;
+BEGIN 
+    Total := 0;
+    FOR (I := 0; I < 5; I := I + 1) {
+        FOR (J := 0; J < 3; J := J + 1) {
+            Total := Total + I * J;
+        }
+    }
+END

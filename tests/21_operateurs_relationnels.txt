@@ -1,0 +1,13 @@
+INT A, B, C;
+BEGIN 
+    A := 10;
+    B := 20;
+    C := 0;
+    
+    IF (A == B) { C := 1; }
+    IF (A <> B) { C := 2; }
+    IF (A < B)  { C := 3; }
+    IF (A <= B) { C := 4; }
+    IF (A > B)  { C := 5; }
+    IF (A >= B) { C := 6; }
+END

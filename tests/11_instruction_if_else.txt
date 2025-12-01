@@ -1,0 +1,10 @@
+INT A, B, C;
+BEGIN 
+    A := 5;
+    B := 10;
+    IF (A < B) {
+        C := A + B;
+    } ELSE {
+        C := A - B;
+    }
+END

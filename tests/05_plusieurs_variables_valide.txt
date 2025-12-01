@@ -1,0 +1,5 @@
+FLOAT A, B, C;
+INT X, Y, Z;
+BOOL Flag, Status;
+BEGIN 
+END

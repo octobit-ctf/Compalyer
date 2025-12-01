@@ -1,0 +1,6 @@
+FLOAT aa;
+FLOAT Aa__a;
+INT Aa__;
+INT a_;
+BEGIN 
+END

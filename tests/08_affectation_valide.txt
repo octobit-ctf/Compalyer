@@ -1,0 +1,6 @@
+INT A, B, C, D, F;
+BEGIN 
+    A := (C + D) * A/B;
+    A := +C + D * A;
+    B := C - D + F;
+END

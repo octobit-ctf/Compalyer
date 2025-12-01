@@ -1,0 +1,5 @@
+INT A, B, B, C;
+INT A;
+FLOAT C;
+BEGIN 
+END

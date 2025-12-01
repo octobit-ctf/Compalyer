@@ -1,0 +1,6 @@
+FLOAT AA;
+FLOAT Moyenne_etudiant;
+INT Score_total;
+BOOL Is_valid;
+BEGIN 
+END

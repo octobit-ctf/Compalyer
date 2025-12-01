@@ -92,6 +92,7 @@ static int unify_numeric(int a, int b) {
 %type <list> assign_list
 %type <list> idf_list
 %type <expr_val> expr
+%type <expr_val> const_value
 %type <type> condition
 
 
@@ -122,15 +123,17 @@ declarations:
     ;
 
 decl:
-    /* constant declarations */
-    CONST_ TYPE_ IDF ASSIGN_CONST INT_CONST SC {
-        add_symbol($3, $2, 1, 1, (double)$5); /* is_const = 1, has_value = 1 */
+    /* constant declarations - using const_value for signed constants */
+    CONST_ TYPE_ IDF ASSIGN_CONST const_value SC {
+        /* Check if declared type matches the constant value type */
+        if ($2 == T_INT && $5.type == T_FLOAT) {
+            fprintf(stderr, "Semantic Error at line %d: cannot assign float to int constant '%s'\n", 
+                    yylineno, $3);
+        }
+        add_symbol($3, $2, 1, 1, $5.value); /* is_const = 1, has_value = 1 */
         free($3);
     }
-  | CONST_ TYPE_ IDF ASSIGN_CONST FLOAT_CONST SC {
-        add_symbol($3, $2, 1, 1, $5); /* is_const = 1, has_value = 1 */
-        free($3);
-    }  /* variable declarations */
+    /* variable declarations */
   | TYPE_ idf_list SC {
         /* $2 is an id_list, add each to symbol table */
         id_list *tmp;
@@ -191,8 +194,7 @@ idf_list:
         while (p->next) p = p->next;
         p->next = node;
         $$ = $1;
-    }
-  | idf_list COMMA IDF ASSIGN FLOAT_CONST {
+    }  | idf_list COMMA IDF ASSIGN FLOAT_CONST {
         id_list *node = malloc(sizeof(id_list));
         node->name = $3;
         node->has_value = 1;
@@ -204,6 +206,41 @@ idf_list:
         $$ = $1;
     }
     ;
+
+/* const_value handles signed constants (+/- prefix) */
+const_value:
+    INT_CONST {
+        $$.type = T_INT;
+        $$.value = (double)$1;
+        $$.has_value = 1;
+    }
+  | MINUS INT_CONST {
+        $$.type = T_INT;
+        $$.value = (double)(-$2);
+        $$.has_value = 1;
+    }
+  | PLUS INT_CONST {
+        $$.type = T_INT;
+        $$.value = (double)$2;
+        $$.has_value = 1;
+    }
+  | FLOAT_CONST {
+        $$.type = T_FLOAT;
+        $$.value = $1;
+        $$.has_value = 1;
+    }
+  | MINUS FLOAT_CONST {
+        $$.type = T_FLOAT;
+        $$.value = -$2;
+        $$.has_value = 1;
+    }
+  | PLUS FLOAT_CONST {
+        $$.type = T_FLOAT;
+        $$.value = $2;
+        $$.has_value = 1;
+    }
+    ;
+
 statements:
     /* empty */
   | statements statement

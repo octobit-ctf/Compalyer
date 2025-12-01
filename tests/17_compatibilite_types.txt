@@ -1,0 +1,12 @@
+INT A := 8;
+FLOAT B := 8.5;
+BOOL R;
+BEGIN 
+    B := A;
+    A := B;
+    A := R;
+    R := A;
+    A := B;
+    B := R;
+    A := 5.9;
+END

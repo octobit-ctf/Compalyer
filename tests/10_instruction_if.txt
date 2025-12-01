@@ -1,0 +1,8 @@
+INT A, B;
+BEGIN 
+    A := 8;
+    B := 10;
+    IF (A == 8) {
+        B := A + 1;
+    }
+END

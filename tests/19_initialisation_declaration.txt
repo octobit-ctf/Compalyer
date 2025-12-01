@@ -1,0 +1,7 @@
+INT X := 10;
+INT Y := 20, Z := 30;
+FLOAT Pi := 3.14159;
+BEGIN 
+    X := X + Y;
+    Z := X * 2;
+END

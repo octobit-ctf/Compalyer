@@ -1,0 +1,100 @@
+CONST INT MAX = 100;
+CONST INT MIN = -50;
+CONST FLOAT PI = +3.14159;
+CONST FLOAT RATE = 2.5;
+INT A;
+INT B, C, D;
+FLOAT X, Y, Z;
+BOOL Flag;
+INT Counter := 0;
+INT Start := 10, End := 20;
+FLOAT Value := 99.99;
+
+BEGIN
+    A := 5;
+    B := 10;
+    C := 15;
+    X := 3.14;
+    Y := 2.71;
+    
+    D := A + B;
+    D := A - B;
+    D := A + B - C;
+    \hello world\
+    D := A * B;
+    D := A / B;
+    D := A * B / C;
+    
+    D := (A + B) * C;
+    D := A + (B * C);
+    D := (A + B) * (C - D);
+    D := ((A + B) * C) / D;
+    
+    D := -A;
+    D := +B;
+    D := -A + B;
+    D := A + (-B);
+    
+    IF (A < B) {
+        D := A + B;
+    }
+    
+    IF (A == 5) {
+        D := 100;
+    }
+    
+    IF (A > B) {
+        D := A;
+    } ELSE {
+        D := B;
+    }
+    
+    IF (X < Y) {
+        Z := X;
+    } ELSE {
+        Z := Y;
+    }
+    
+    IF (A < B) {
+        IF (B < C) {
+            D := 1;
+        } ELSE {
+            D := 2;
+        }
+    } ELSE {
+        IF (A < C) {
+            D := 3;
+        } ELSE {
+            D := 4;
+        }
+    }
+    
+    FOR (A := 0; A < 10; A := A + 1) {
+        D := D + A;
+    }
+    
+    FOR (B := 10; B > 0; B := B - 1) {
+        D := D + B;
+    }
+    
+    FOR (A := 0; A < 5; A := A + 1) {
+        FOR (B := 0; B < 3; B := B + 1) {
+            D := A * B;
+        }
+    }
+    
+    IF (A == B) { D := 1; }
+    IF (A <> B) { D := 2; }
+    IF (A < B)  { D := 3; }
+    IF (A <= B) { D := 4; }
+    IF (A > B)  { D := 5; }
+    IF (A >= B) { D := 6; }
+    
+    A := 1, B := 2, C := 3;
+    X := 1.1, Y := 2.2, Z := 3.3;
+    
+    X := A;
+    Y := B + C;
+    Z := A * B / C;
+
+END

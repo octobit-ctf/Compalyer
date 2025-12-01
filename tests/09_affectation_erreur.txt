@@ -1,0 +1,4 @@
+INT A, C, D, F;
+BEGIN 
+    A := C + D * F /;
+END

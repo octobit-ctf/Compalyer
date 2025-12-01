@@ -1,0 +1,5 @@
+FLOAT A, B, ;
+FLOAT C, D, , F;
+BOOL , S, F;
+BEGIN 
+END

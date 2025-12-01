@@ -1,0 +1,7 @@
+INT I, Sum;
+BEGIN 
+    Sum := 0;
+    FOR (I := 0; I < 10; I := I + 1) {
+        Sum := Sum + I;
+    }
+END

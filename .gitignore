@@ -1,0 +1,16 @@
+# Compiled files
+langf
+*.o
+
+# Bison/Flex generated files
+Bison.tab.c
+Bison.tab.h
+lex.yy.c
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
